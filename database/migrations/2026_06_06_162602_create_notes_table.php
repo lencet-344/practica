@@ -15,7 +15,8 @@ return new class extends Migration
             $table->increments("id");
             $table->string("title");
 
-            
+            $table->integer("category_id")->unsigned();
+            $table->foreign("category_id")->references("id")->on("categories")->onDelete("cascade");
 
             $table->timestamps();
         });
